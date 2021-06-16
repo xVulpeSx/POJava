@@ -35,6 +35,12 @@ public class Menu {
             else if (mode == 2)
                 this.showList();
         }
+
+        try {
+            saver.saveData(personList);
+        } catch (IOException e) {
+
+        }
     }
 
     public Person getPersonData(){
