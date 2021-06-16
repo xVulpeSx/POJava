@@ -63,19 +63,21 @@ public class Menu {
             return;
         }
 
-        checkUpdate(person);
+        if(!checkUpdate(person)){
+            personList.add(person);
+        }
 
-        personList.add(person);
     }
 
-    public void checkUpdate(Person person) {
+    public boolean checkUpdate(Person person) {
         for(Person p : personList){
             if(p.getPesel().equals(person.getPesel())){
                 personList.remove(p);
                 personList.add(person);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     private void showList() {
